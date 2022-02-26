@@ -1,0 +1,2 @@
+class Cancadidate < ApplicationRecord
+end

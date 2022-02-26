@@ -1,0 +1,20 @@
+<h1>编辑候选人</h1>
+
+<%= form_for(@candidate) do |f| %>
+  <%= f.label :name, "姓名" %>
+  <%= f.text_field :name %> 
+
+  <%= f.label :age, "年龄" %>
+  <%= f.text_field :age %>
+
+  <%= f.label :policy, "政党" %>
+  <%= f.text_field :policy %>
+
+  <%= f.label :text, "宣言" %>
+  <%= f.text_area :text %>
+
+  </br>
+
+  <%= f.submit %>
+<% end %>
+<%= link_to "返回首页", candidates_path %>

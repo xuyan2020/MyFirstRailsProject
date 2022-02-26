@@ -1,0 +1,29 @@
+<h1>Welcome to Candidate System!</h1>
+
+<%= link_to "新增候选人", new_candidate_path %>
+</br>
+<table border="1px solid">
+  <tr>
+    <th>姓名</th>
+    <th>年龄</th>
+    <th>政党</th>
+    <th>宣言</th>
+    <th>票数</th>
+    <th>操作</th>
+  <tr>
+
+  <%= @candidates.map do |_candidate| %>
+    <tr>
+      <td><%=_candidate.name %></td>
+      <td><%=_candidate.age%></td>
+      <td><%=_candidate.policy%></td>
+      <td><%=_candidate.text%></td>
+      <td><%=_candidate.vote_logs.count%></td>
+      <td>
+        <%= link_to "投票", vote_candidate_path(_candidate), method: "post", data: {confirm: "确定投给 #{_candidate.name} ?"} %>
+        <%= link_to "编辑", edit_candidate_path(_candidate) %>
+        <%= link_to "删除", candidate_path(_candidate), method: "delete", data: {confirm: "是否删除？"}%>
+      </td>
+    </tr>
+  <% end %>
+</table>
